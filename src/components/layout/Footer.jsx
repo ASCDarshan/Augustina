@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { HiPhone, HiMail, HiLocationMarker, HiClock } from 'react-icons/hi';
 import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import logoImg from "../../assets/images/logo.png"
 
 const Footer = () => {
   return (
@@ -13,10 +14,7 @@ const Footer = () => {
             {/* Company Info */}
             <div>
               <Link to="/" className="flex items-center space-x-2 mb-6">
-                {/* <img src="/logo.png" alt="Augustina" className="h-10 w-auto" /> */}
-                <span className="text-xl font-bold text-primary-600">
-                  Augustina
-                </span>
+                <img src={logoImg} alt="Augustina" className="h-10 w-auto" />
               </Link>
               <p className="text-gray-600 mb-6">
                 Committed to innovation that leads to a green future. We provide innovative & commercially viable solutions for sustainable energy.
