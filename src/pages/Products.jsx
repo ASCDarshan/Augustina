@@ -5,7 +5,7 @@ import secondImg from "../assets/images/product two.jpg"
 import thirdImg from "../assets/images/three.jpg"
 import fourthImg from "../assets/images/four.jpg"
 import fifthImg from "../assets/images/five.png"
-import technicalSupportImage from "../assets/images/technical support.jpg"
+// import technicalSupportImage from "../assets/images/technical support.jpg"
 
 const Products = () => {
 
@@ -200,13 +200,13 @@ const Products = () => {
                   Contact Support
                 </motion.button>
               </div>
-              <div className="relative h-64 md:h-full">
+              {/* <div className="relative h-64 md:h-full">
                 <img
                   src={technicalSupportImage}
                   alt="Technical Support"
                   className="w-full h-full object-cover rounded-xl"
                 />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
