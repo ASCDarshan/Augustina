@@ -13,7 +13,7 @@ const Footer = () => {
             {/* Company Info */}
             <div>
               <Link to="/" className="flex items-center space-x-2 mb-6">
-                <img src="/logo.png" alt="Augustina" className="h-10 w-auto" />
+                {/* <img src="/logo.png" alt="Augustina" className="h-10 w-auto" /> */}
                 <span className="text-xl font-bold text-primary-600">
                   Augustina
                 </span>
@@ -22,15 +22,15 @@ const Footer = () => {
                 Committed to innovation that leads to a green future. We provide innovative & commercially viable solutions for sustainable energy.
               </p>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-primary-600 transition-colors">
+                <Link className="text-gray-400 hover:text-primary-600 transition-colors">
                   <FaFacebook className="w-6 h-6" />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-primary-600 transition-colors">
+                </Link>
+                <Link className="text-gray-400 hover:text-primary-600 transition-colors">
                   <FaTwitter className="w-6 h-6" />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-primary-600 transition-colors">
+                </Link>
+                <Link className="text-gray-400 hover:text-primary-600 transition-colors">
                   <FaLinkedin className="w-6 h-6" />
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -40,7 +40,7 @@ const Footer = () => {
               <ul className="space-y-4">
                 {['About Us', 'Services', 'Products', 'Contact'].map((item) => (
                   <li key={item}>
-                    <Link 
+                    <Link
                       to={`/${item.toLowerCase().replace(' ', '-')}`}
                       className="text-gray-600 hover:text-primary-600 transition-colors"
                     >
@@ -63,7 +63,7 @@ const Footer = () => {
                   'Installation Services'
                 ].map((service) => (
                   <li key={service}>
-                    <Link 
+                    <Link
                       to="/services"
                       className="text-gray-600 hover:text-primary-600 transition-colors"
                     >

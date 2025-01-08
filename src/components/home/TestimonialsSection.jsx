@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { HiChevronLeft, HiChevronRight, HiStar } from 'react-icons/hi';
+import profileImg from "../../assets/images/profileImg.jpg"
 
 const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -83,7 +84,7 @@ const TestimonialsSection = () => {
                     <div className="flex-shrink-0">
                       <div className="w-24 h-24 md:w-32 md:h-32 relative">
                         <img
-                          src={testimonials[currentIndex].image}
+                          src={profileImg}
                           alt={testimonials[currentIndex].name}
                           className="w-full h-full object-cover rounded-full"
                         />
@@ -143,9 +144,8 @@ const TestimonialsSection = () => {
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentIndex ? 'bg-primary-500' : 'bg-primary-200'
-              }`}
+              className={`w-3 h-3 rounded-full transition-colors ${index === currentIndex ? 'bg-primary-500' : 'bg-primary-200'
+                }`}
             />
           ))}
         </div>

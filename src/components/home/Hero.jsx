@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { HiArrowRight, HiOutlineChartBar, HiOutlineLightBulb, HiOutlineGlobe } from 'react-icons/hi';
+import bannerImage from "../../assets/images/banner.jpg"
 
 const Hero = () => {
   const containerVariants = {
@@ -69,7 +70,7 @@ const Hero = () => {
                 <span className="text-primary-600">Green Future</span>
               </h1>
             </motion.div>
-            
+
             <motion.p
               variants={itemVariants}
               className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl"
@@ -153,7 +154,7 @@ const Hero = () => {
                 className="absolute inset-0"
               >
                 <img
-                  src="/images/hero-biomass.jpg"
+                  src={bannerImage}
                   alt="Biomass Solutions"
                   className="w-full h-full object-cover rounded-2xl shadow-2xl"
                 />

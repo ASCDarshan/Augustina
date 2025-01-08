@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { HiOutlineCurrencyDollar, HiOutlineClock, HiOutlineScale } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
+import firstImg from "../../assets/images/offer/CONVERT YOUR BIOMASS.jpg"
+import secondImg from "../../assets/images/offer/EQUIPMENTS ON LEASE.png"
+import thirdImg from "../../assets/images/offer/BUILD-OWN.jpg"
 
 const OffersSection = () => {
   const [ref, inView] = useInView({
@@ -17,7 +20,7 @@ const OffersSection = () => {
       price: "US$06.00 PER MT",
       description: "WE PROVIDE EQUIPMENTS TO CONVERT YOUR BIOMASS WASTE TO BRIQUETTES",
       buttonText: "Contact Us",
-      image: "/images/briquette-conversion.jpg",
+      image: firstImg,
       highlight: "Most Popular"
     },
     {
@@ -26,7 +29,7 @@ const OffersSection = () => {
       price: "Starting from $2000/month",
       description: "WE PROVIDE EQUIPMENTS TO CONVERT YOUR BIOMASS WASTE TO BRIQUETTES ON LEASE",
       buttonText: "Get Details",
-      image: "/images/equipment-lease.jpg"
+      image: secondImg
     },
     {
       icon: <HiOutlineScale className="w-8 h-8" />,
@@ -34,7 +37,7 @@ const OffersSection = () => {
       price: "Custom Solutions",
       description: "WE PROVIDE EQUIPMENTS ON BOOT BASIS",
       buttonText: "Learn More",
-      image: "/images/boot-model.jpg"
+      image: thirdImg
     }
   ];
 
