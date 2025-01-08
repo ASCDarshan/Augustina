@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { HiArrowRight, HiOutlineChartBar, HiOutlineLightBulb, HiOutlineGlobe } from 'react-icons/hi';
-import bannerImage from "../../assets/images/banner.jpg"
+import bannerImage from "../../assets/images/aboutUs.jpeg"
 
 const Hero = () => {
   const containerVariants = {

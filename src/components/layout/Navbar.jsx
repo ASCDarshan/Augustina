@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX, HiPhone, HiMail } from 'react-icons/hi';
 import { FaFacebook, FaLinkedin } from 'react-icons/fa';
+import logoImg from "../../assets/images/logo.png"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,16 +54,13 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link to="/" className="flex items-center space-x-2">
-              {/* <motion.img
-                src="/logo.png"
+              <motion.img
+                src={logoImg}
                 alt="Augustina"
                 className="h-12 w-auto"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-              /> */}
-              <span className="text-xl font-bold text-primary-600">
-                Augustina Tradelink
-              </span>
+              />
             </Link>
 
             {/* Desktop Navigation */}
