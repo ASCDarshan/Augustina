@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import ClientOne from "../../assets/images/Daystar Pvt. Ltd.png"
+import ClientTwo from "../../assets/images/Adhyashakti Green Solutions.png"
+import ClientThree from "../../assets/images/Ajil Biofuel.png"
 
 const ClientsSection = () => {
   const [ref, inView] = useInView({
@@ -11,15 +14,15 @@ const ClientsSection = () => {
   const clients = [
     {
       name: "Daystar Pvt. Ltd",
-      logo: "/images/clients/daystar.png"
+      logo: ClientOne
     },
     {
       name: "Adhyashakti Green Solutions",
-      logo: "/images/clients/adhyashakti.png"
+      logo: ClientTwo
     },
     {
       name: "Ajil Biofuel Sdn. Bhd",
-      logo: "/images/clients/ajil.png"
+      logo: ClientThree
     }
   ];
 

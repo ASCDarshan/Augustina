@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import missionImg from "../../assets/images/SUSTAINABLE.png"
 
 const AboutSection = () => {
   const [ref, inView] = useInView({
@@ -38,8 +39,8 @@ const AboutSection = () => {
             <p className="text-gray-600 mb-6">
               Having strong teamwork and in-depth research, we have created new concepts and means to treat biomass waste. Our innovative and power-efficient systems help in generating briquettes, pellets, power, and combustible gases.
             </p>
-            
-            <motion.div 
+
+            <motion.div
               className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12"
               variants={{
                 visible: {
@@ -77,13 +78,13 @@ const AboutSection = () => {
           >
             <div className="rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/images/about-image.jpg"
+                src={missionImg}
                 alt="Sustainable Technology"
-                className="w-full h-full object-cover"
+                className="w-full h-90 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary-500/20 to-transparent" />
             </div>
-            
+
             {/* Floating card */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}

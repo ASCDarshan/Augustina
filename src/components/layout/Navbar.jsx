@@ -35,12 +35,12 @@ const Navbar = () => {
             <div className="flex items-center space-x-4 mt-2 sm:mt-0">
               <span className="text-primary-200">Mon - Sat 10.00 AM - 8.00 PM</span>
               <div className="flex items-center space-x-3">
-                <a href="#" className="hover:text-primary-200 transition-colors">
+                <Link className="hover:text-primary-200 transition-colors">
                   <FaFacebook className="w-4 h-4" />
-                </a>
-                <a href="#" className="hover:text-primary-200 transition-colors">
+                </Link>
+                <Link className="hover:text-primary-200 transition-colors">
                   <FaLinkedin className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -48,19 +48,18 @@ const Navbar = () => {
       </div>
 
       {/* Main Navigation */}
-      <nav className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-lg' : 'bg-white/90 backdrop-blur-md'
-      }`}>
+      <nav className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-lg' : 'bg-white/90 backdrop-blur-md'
+        }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link to="/" className="flex items-center space-x-2">
-              <motion.img
+              {/* <motion.img
                 src="/logo.png"
                 alt="Augustina"
                 className="h-12 w-auto"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-              />
+              /> */}
               <span className="text-xl font-bold text-primary-600">
                 Augustina Tradelink
               </span>

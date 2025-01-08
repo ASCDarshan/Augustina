@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { HiOutlineLightBulb, HiOutlineCog, HiOutlineRefresh, HiOutlineScale, HiOutlineChartBar, HiOutlineSupport } from 'react-icons/hi';
+import { HiOutlineLightBulb, HiOutlineCog, HiOutlineRefresh } from 'react-icons/hi';
 
 const Services = () => {
   const services = [
@@ -189,11 +189,11 @@ const Services = () => {
                 </Link>
               </div>
               <div className="relative h-64 md:h-full">
-                <img
+                {/* <img
                   src="/images/biomass-plant.jpg"
                   alt="Biomass Processing Plant"
                   className="w-full h-full object-cover rounded-xl"
-                />
+                /> */}
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-600/50 to-transparent rounded-xl" />
               </div>
             </div>

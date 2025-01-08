@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { HiChevronRight, HiOutlineInformationCircle } from 'react-icons/hi';
+import firstImg from "../assets/images/product one.png"
+import secondImg from "../assets/images/product two.jpg"
+import thirdImg from "../assets/images/three.jpg"
+import fourthImg from "../assets/images/four.jpg"
+import fifthImg from "../assets/images/five.png"
+import technicalSupportImage from "../assets/images/technical support.jpg"
 
 const Products = () => {
-  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const products = [
     {
       id: 1,
       name: "HEAVY DUTY SHREDDER",
-      image: "/images/products/shredder.png",
+      image: firstImg,
       highlights: [
         "Advanced shredding technology",
         "High throughput capacity",
@@ -21,7 +25,7 @@ const Products = () => {
     {
       id: 2,
       name: "HEAVY DUTY SECONDARY SHREDDER",
-      image: "/images/products/secondary-shredder.gif",
+      image: secondImg,
       highlights: [
         "Fine particle size control",
         "Consistent output quality",
@@ -33,7 +37,7 @@ const Products = () => {
     {
       id: 3,
       name: "DEWATERING PRESS UNIT",
-      image: "/images/products/dewatering.jpg",
+      image: thirdImg,
       highlights: [
         "High moisture removal efficiency",
         "Continuous operation capability",
@@ -45,7 +49,7 @@ const Products = () => {
     {
       id: 4,
       name: "THERMO DRYER",
-      image: "/images/products/thermo-dryer.jpg",
+      image: fourthImg,
       highlights: [
         "Precise temperature control",
         "Energy-efficient design",
@@ -57,7 +61,7 @@ const Products = () => {
     {
       id: 5,
       name: "BIO COMPACTOR",
-      image: "/images/products/bio-compactor.png",
+      image: fifthImg,
       highlights: [
         "High compression ratio",
         "Uniform density output",
@@ -135,7 +139,7 @@ const Products = () => {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      onClick={() => setSelectedProduct(product)}
+                      // onClick={() => setSelectedProduct(product)}
                       className="flex-1 bg-primary-500 text-white py-2 px-4 rounded-lg hover:bg-primary-600 transition-colors"
                     >
                       Learn More
@@ -198,7 +202,7 @@ const Products = () => {
               </div>
               <div className="relative h-64 md:h-full">
                 <img
-                  src="/images/support-team.jpg"
+                  src={technicalSupportImage}
                   alt="Technical Support"
                   className="w-full h-full object-cover rounded-xl"
                 />
