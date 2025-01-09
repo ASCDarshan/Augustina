@@ -7,11 +7,9 @@ import logoImg from "../../assets/images/logo.png"
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-b from-gray-50 to-gray-100">
-      {/* Main Footer */}
       <div className="pt-16 pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-            {/* Company Info */}
             <div>
               <Link to="/" className="flex items-center space-x-2 mb-6">
                 <img src={logoImg} alt="Augustina" className="h-10 w-auto" />
@@ -32,7 +30,6 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Quick Links */}
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-6">Quick Links</h3>
               <ul className="space-y-4">
@@ -49,7 +46,6 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Services */}
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-6">Our Services</h3>
               <ul className="space-y-4">
@@ -72,7 +68,6 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Contact Info */}
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-6">Contact Info</h3>
               <div className="space-y-4">
@@ -106,7 +101,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Bar */}
       <div className="border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-6 text-center md:flex md:justify-between md:text-left">

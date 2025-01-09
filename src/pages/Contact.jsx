@@ -2,8 +2,35 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { HiPhone, HiMail, HiLocationMarker, HiClock, HiCheck } from 'react-icons/hi';
 
+const contactInfo = [
+  {
+    icon: <HiLocationMarker className="w-6 h-6" />,
+    title: "Address",
+    content: "415-A, Kapadia Compound, Vasta Devdi Road, Katargam, Surat- 395004",
+    link: "https://maps.google.com/maps/dir//6R8P%2BCR+Patel+Nagar+Surat,+Gujarat/@21.2160625,72.8370625,19z/data=!4m5!4m4!1m0!1m2!1m1!1s0x3be04ee13b4bbd7b:0x42dbeece79eba542"
+  },
+  {
+    icon: <HiPhone className="w-6 h-6" />,
+    title: "Phone",
+    content: "+91 9998835511",
+    link: "tel:9998835511"
+  },
+  {
+    icon: <HiMail className="w-6 h-6" />,
+    title: "Email",
+    content: "enquiry@augustina.in",
+    link: "mailto:enquiry@augustina.in"
+  },
+  {
+    icon: <HiClock className="w-6 h-6" />,
+    title: "Working Hours",
+    content: "Mon - Sat 10.00 AM - 8.00 PM",
+    link: null
+  }
+];
+
 const Contact = () => {
-  const [formStatus, setFormStatus] = useState('idle'); // idle, submitting, success, error
+  const [formStatus, setFormStatus] = useState('idle');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,44 +41,16 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormStatus('submitting');
-    
-    // Simulate form submission
+
     setTimeout(() => {
       setFormStatus('success');
       setFormData({ name: '', email: '', phone: '', message: '' });
     }, 1500);
   };
 
-  const contactInfo = [
-    {
-      icon: <HiLocationMarker className="w-6 h-6" />,
-      title: "Address",
-      content: "415-A, Kapadia Compound, Vasta Devdi Road, Katargam, Surat- 395004",
-      link: "https://maps.google.com/maps/dir//6R8P%2BCR+Patel+Nagar+Surat,+Gujarat/@21.2160625,72.8370625,19z/data=!4m5!4m4!1m0!1m2!1m1!1s0x3be04ee13b4bbd7b:0x42dbeece79eba542"
-    },
-    {
-      icon: <HiPhone className="w-6 h-6" />,
-      title: "Phone",
-      content: "+91 9998835511",
-      link: "tel:9998835511"
-    },
-    {
-      icon: <HiMail className="w-6 h-6" />,
-      title: "Email",
-      content: "enquiry@augustina.in",
-      link: "mailto:enquiry@augustina.in"
-    },
-    {
-      icon: <HiClock className="w-6 h-6" />,
-      title: "Working Hours",
-      content: "Mon - Sat 10.00 AM - 8.00 PM",
-      link: null
-    }
-  ];
 
   return (
-    <div className="pt-20">
-      {/* Hero Section */}
+    <div className="pt-20" >
       <section className="relative bg-gradient-to-b from-primary-50 to-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -59,7 +58,7 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Get in Touch
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -69,11 +68,9 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-20">
+      <section >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -81,7 +78,7 @@ const Contact = () => {
               className="bg-white rounded-2xl shadow-lg p-8"
             >
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
@@ -162,13 +159,11 @@ const Contact = () => {
               </form>
             </motion.div>
 
-            {/* Contact Information */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4 }}
             >
-              {/* Contact Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                 {contactInfo.map((info, index) => (
                   <motion.a
@@ -192,7 +187,6 @@ const Contact = () => {
                 ))}
               </div>
 
-              {/* Map */}
               <div className="bg-white rounded-2xl shadow-lg p-2 h-[300px]">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.4167873750644!2d72.83487531493444!3d21.216062585894343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04ee13b4bbd7b%3A0x42dbeece79eba542!2sPatel%20Nagar%2C%20Surat%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1629790000000!5m2!1sen!2sin"

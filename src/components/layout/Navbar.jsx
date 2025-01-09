@@ -5,6 +5,14 @@ import { HiMenu, HiX, HiPhone, HiMail } from 'react-icons/hi';
 import { FaFacebook, FaLinkedin } from 'react-icons/fa';
 import logoImg from "../../assets/images/logo.png"
 
+const navMenu = [
+  { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
+  { name: 'Products', path: '/products' },
+  { name: 'Services', path: '/services' },
+  { name: 'Contact', path: '/contact' },
+];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -18,8 +26,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="w-full">
-      {/* Top Bar */}
+    <header className="w-full fixed top-0 z-50">
       <div className="bg-primary-600 text-white py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-center text-sm">
@@ -48,8 +55,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Main Navigation */}
-      <nav className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-lg' : 'bg-white/90 backdrop-blur-md'
+      <nav className={`transition-all duration-300 ${scrolled ? 'bg-white shadow-lg' : 'bg-white/90 backdrop-blur-md'
         }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
@@ -63,15 +69,8 @@ const Navbar = () => {
               />
             </Link>
 
-            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              {[
-                { name: 'Home', path: '/' },
-                { name: 'About', path: '/about' },
-                { name: 'Products', path: '/products' },
-                { name: 'Services', path: '/services' },
-                { name: 'Contact', path: '/contact' },
-              ].map((link) => (
+              {navMenu.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
@@ -90,7 +89,6 @@ const Navbar = () => {
               </motion.button>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden p-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors"
@@ -100,7 +98,6 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -110,13 +107,7 @@ const Navbar = () => {
               className="md:hidden bg-white border-t"
             >
               <div className="px-4 pt-2 pb-3 space-y-1">
-                {[
-                  { name: 'Home', path: '/' },
-                  { name: 'About', path: '/about' },
-                  { name: 'Products', path: '/products' },
-                  { name: 'Services', path: '/services' },
-                  { name: 'Contact', path: '/contact' },
-                ].map((link) => (
+                {navMenu.map((link) => (
                   <Link
                     key={link.name}
                     to={link.path}

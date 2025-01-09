@@ -8,7 +8,6 @@ const TestimonialCard = ({ testimonial, isCompact = false }) => {
       whileHover={{ y: -5 }}
       className="bg-white rounded-xl shadow-lg p-6 h-full flex flex-col"
     >
-      {/* Client Image and Rating */}
       <div className="flex items-center space-x-4 mb-4">
         <div className="relative">
           <img
@@ -27,16 +26,15 @@ const TestimonialCard = ({ testimonial, isCompact = false }) => {
         </div>
       </div>
 
-      {/* Testimonial Content */}
       <blockquote className={`text-gray-700 italic ${isCompact ? 'text-sm' : 'text-base'} mb-4 flex-1`}>
         "{testimonial.text}"
       </blockquote>
 
-      {/* Client Details */}
       <div>
         <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
         <p className="text-primary-600 text-sm">{testimonial.position}</p>
       </div>
+
     </motion.div>
   );
 };

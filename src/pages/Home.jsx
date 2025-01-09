@@ -8,7 +8,7 @@ import OffersSection from '../components/home/OffersSection';
 
 const Home = () => {
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden pt-20">
       <Hero />
       <AboutSection />
       <ServicesSection />
