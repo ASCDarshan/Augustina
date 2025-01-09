@@ -1,56 +1,61 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import ClientOne from "../../assets/images/Daystar Pvt. Ltd.png"
-import ClientTwo from "../../assets/images/Adhyashakti Green Solutions.png"
-import ClientThree from "../../assets/images/Ajil Biofuel.png"
+import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import ClientOne from "../../assets/images/Daystar Pvt. Ltd.png";
+import ClientTwo from "../../assets/images/Adhyashakti Green Solutions.png";
+import ClientThree from "../../assets/images/Ajil Biofuel.png";
 
+const clients = [
+  {
+    name: "Daystar Pvt. Ltd",
+    logo: ClientOne,
+  },
+  {
+    name: "Adhyashakti Green Solutions",
+    logo: ClientTwo,
+  },
+  {
+    name: "Ajil Biofuel Sdn. Bhd",
+    logo: ClientThree,
+  },
+];
+
+const stats = [
+  { number: "15+", label: "Years Experience" },
+  { number: "21+", label: "Projects Completed" },
+  { number: "100%", label: "Client Satisfaction" },
+  { number: "3", label: "Countries Served" },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
 const ClientsSection = () => {
   const [ref, inView] = useInView({
     threshold: 0.2,
     triggerOnce: true,
   });
 
-  const clients = [
-    {
-      name: "Daystar Pvt. Ltd",
-      logo: ClientOne
-    },
-    {
-      name: "Adhyashakti Green Solutions",
-      logo: ClientTwo
-    },
-    {
-      name: "Ajil Biofuel Sdn. Bhd",
-      logo: ClientThree
-    }
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5
-      }
-    }
-  };
-
   return (
     <section className="py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -66,11 +71,11 @@ const ClientsSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-gray-600 max-w-2xl mx-auto"
           >
-            We're proud to work with industry leaders who trust our innovative solutions
+            We're proud to work with industry leaders who trust our innovative
+            solutions
           </motion.p>
         </div>
 
-        {/* Clients Grid */}
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -102,27 +107,22 @@ const ClientsSection = () => {
           ))}
         </motion.div>
 
-        {/* Trust Indicators */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8"
         >
-          {[
-            { number: "15+", label: "Years Experience" },
-            { number: "21+", label: "Projects Completed" },
-            { number: "100%", label: "Client Satisfaction" },
-            { number: "3", label: "Countries Served" }
-          ].map((stat, index) => (
+          {stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <h4 className="text-3xl font-bold text-primary-600 mb-2">{stat.number}</h4>
+              <h4 className="text-3xl font-bold text-primary-600 mb-2">
+                {stat.number}
+              </h4>
               <p className="text-gray-600">{stat.label}</p>
             </div>
           ))}
         </motion.div>
 
-        {/* Call to Action */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -142,7 +142,6 @@ const ClientsSection = () => {
         </motion.div>
       </div>
 
-      {/* Logo Cloud Background Animation */}
       <div className="absolute inset-0 -z-10 opacity-5">
         <div className="absolute inset-y-0 right-1/2 w-screen bg-gradient-to-r from-primary-50 to-primary-100 blur-3xl" />
         <div className="absolute inset-y-0 right-1/2 w-screen bg-gradient-to-r from-secondary-50 to-secondary-100 blur-3xl" />

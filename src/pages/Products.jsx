@@ -7,74 +7,71 @@ import fourthImg from "../assets/images/four.jpg"
 import fifthImg from "../assets/images/five.png"
 // import technicalSupportImage from "../assets/images/technical support.jpg"
 
+const products = [
+  {
+    id: 1,
+    name: "HEAVY DUTY SHREDDER",
+    image: firstImg,
+    highlights: [
+      "Advanced shredding technology",
+      "High throughput capacity",
+      "Robust construction",
+      "Energy efficient operation"
+    ],
+    description: "Industrial-grade shredder designed for efficient biomass waste processing with superior durability and performance."
+  },
+  {
+    id: 2,
+    name: "HEAVY DUTY SECONDARY SHREDDER",
+    image: secondImg,
+    highlights: [
+      "Fine particle size control",
+      "Consistent output quality",
+      "Low maintenance design",
+      "Automated operation"
+    ],
+    description: "Secondary processing unit for achieving precise particle sizes in biomass material preparation."
+  },
+  {
+    id: 3,
+    name: "DEWATERING PRESS UNIT",
+    image: thirdImg,
+    highlights: [
+      "High moisture removal efficiency",
+      "Continuous operation capability",
+      "Adjustable pressure control",
+      "Integrated filtration system"
+    ],
+    description: "Advanced dewatering system for efficient moisture reduction in biomass materials."
+  },
+  {
+    id: 4,
+    name: "THERMO DRYER",
+    image: fourthImg,
+    highlights: [
+      "Precise temperature control",
+      "Energy-efficient design",
+      "Multiple drying zones",
+      "Automatic moisture monitoring"
+    ],
+    description: "State-of-the-art thermal drying solution for optimal moisture content in processed biomass."
+  },
+  {
+    id: 5,
+    name: "BIO COMPACTOR",
+    image: fifthImg,
+    highlights: [
+      "High compression ratio",
+      "Uniform density output",
+      "Easy maintenance access",
+      "Advanced control system"
+    ],
+    description: "Advanced biomass compaction system for producing high-quality fuel briquettes."
+  }
+];
 const Products = () => {
-
-  const products = [
-    {
-      id: 1,
-      name: "HEAVY DUTY SHREDDER",
-      image: firstImg,
-      highlights: [
-        "Advanced shredding technology",
-        "High throughput capacity",
-        "Robust construction",
-        "Energy efficient operation"
-      ],
-      description: "Industrial-grade shredder designed for efficient biomass waste processing with superior durability and performance."
-    },
-    {
-      id: 2,
-      name: "HEAVY DUTY SECONDARY SHREDDER",
-      image: secondImg,
-      highlights: [
-        "Fine particle size control",
-        "Consistent output quality",
-        "Low maintenance design",
-        "Automated operation"
-      ],
-      description: "Secondary processing unit for achieving precise particle sizes in biomass material preparation."
-    },
-    {
-      id: 3,
-      name: "DEWATERING PRESS UNIT",
-      image: thirdImg,
-      highlights: [
-        "High moisture removal efficiency",
-        "Continuous operation capability",
-        "Adjustable pressure control",
-        "Integrated filtration system"
-      ],
-      description: "Advanced dewatering system for efficient moisture reduction in biomass materials."
-    },
-    {
-      id: 4,
-      name: "THERMO DRYER",
-      image: fourthImg,
-      highlights: [
-        "Precise temperature control",
-        "Energy-efficient design",
-        "Multiple drying zones",
-        "Automatic moisture monitoring"
-      ],
-      description: "State-of-the-art thermal drying solution for optimal moisture content in processed biomass."
-    },
-    {
-      id: 5,
-      name: "BIO COMPACTOR",
-      image: fifthImg,
-      highlights: [
-        "High compression ratio",
-        "Uniform density output",
-        "Easy maintenance access",
-        "Advanced control system"
-      ],
-      description: "Advanced biomass compaction system for producing high-quality fuel briquettes."
-    }
-  ];
-
   return (
     <div className="pt-20">
-      {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-primary-50 to-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -92,7 +89,6 @@ const Products = () => {
         </div>
       </section>
 
-      {/* Products Grid */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -105,7 +101,6 @@ const Products = () => {
                 transition={{ delay: index * 0.1 }}
                 className="bg-white rounded-2xl shadow-lg overflow-hidden group"
               >
-                {/* Product Image */}
                 <div className="relative h-64 overflow-hidden">
                   <img
                     src={product.image}
@@ -115,7 +110,6 @@ const Products = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 </div>
 
-                {/* Product Info */}
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-3">
                     {product.name}
@@ -124,7 +118,6 @@ const Products = () => {
                     {product.description}
                   </p>
 
-                  {/* Highlights */}
                   <div className="space-y-2 mb-6">
                     {product.highlights.map((highlight, i) => (
                       <div key={i} className="flex items-center text-gray-700">
@@ -134,7 +127,6 @@ const Products = () => {
                     ))}
                   </div>
 
-                  {/* Action Buttons */}
                   <div className="flex space-x-4">
                     <motion.button
                       whileHover={{ scale: 1.05 }}
@@ -159,7 +151,6 @@ const Products = () => {
         </div>
       </section>
 
-      {/* Technical Specifications Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -176,11 +167,9 @@ const Products = () => {
             </p>
           </motion.div>
 
-          {/* Add Technical Specifications Content */}
         </div>
       </section>
 
-      {/* Support Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-primary-50 rounded-2xl p-8 md:p-12">

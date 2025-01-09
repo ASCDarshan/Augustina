@@ -10,7 +10,6 @@ const ProductModal = ({ product, isOpen, onClose }) => {
       {isOpen && (
         <div className="fixed inset-0 z-50 overflow-y-auto">
           <div className="flex items-center justify-center min-h-screen px-4">
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -19,14 +18,12 @@ const ProductModal = ({ product, isOpen, onClose }) => {
               className="fixed inset-0 bg-black/50"
             />
 
-            {/* Modal Content */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               className="relative bg-white rounded-2xl shadow-xl max-w-3xl w-full mx-4 my-8"
             >
-              {/* Close Button */}
               <button
                 onClick={onClose}
                 className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors"
@@ -35,7 +32,6 @@ const ProductModal = ({ product, isOpen, onClose }) => {
               </button>
 
               <div className="p-6">
-                {/* Product Images */}
                 <div className="relative h-64 mb-6">
                   <img
                     src={product.image}
@@ -44,7 +40,6 @@ const ProductModal = ({ product, isOpen, onClose }) => {
                   />
                 </div>
 
-                {/* Product Info */}
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">
                   {product.name}
                 </h2>
@@ -53,7 +48,6 @@ const ProductModal = ({ product, isOpen, onClose }) => {
                   <p>{product.description}</p>
                 </div>
 
-                {/* Key Features */}
                 <div className="mb-6">
                   <h3 className="text-lg font-semibold text-gray-900 mb-3">
                     Key Features
@@ -68,7 +62,6 @@ const ProductModal = ({ product, isOpen, onClose }) => {
                   </ul>
                 </div>
 
-                {/* Actions */}
                 <div className="flex flex-wrap gap-4">
                   <button className="flex items-center px-6 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors">
                     <HiDownload className="w-5 h-5 mr-2" />

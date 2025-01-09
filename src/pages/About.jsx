@@ -2,6 +2,23 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { HiOutlineLightBulb, HiOutlineEye, HiChip, HiGlobe } from 'react-icons/hi';
 
+const features = [
+  {
+    icon: <HiChip className="w-6 h-6" />,
+    title: "Innovative Technology",
+    description: "State-of-the-art solutions for biomass waste conversion"
+  },
+  {
+    icon: <HiGlobe className="w-6 h-6" />,
+    title: "Global Reach",
+    description: "Serving clients across multiple countries"
+  },
+  {
+    icon: <HiOutlineLightBulb className="w-6 h-6" />,
+    title: "Expert Team",
+    description: "Dedicated professionals with years of experience"
+  }
+]
 const About = () => {
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -10,7 +27,6 @@ const About = () => {
 
   return (
     <div className="pt-20">
-      {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-primary-50 to-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -37,11 +53,9 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-20">
+      <section className="py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Mission */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -73,7 +87,6 @@ const About = () => {
               </ul>
             </motion.div>
 
-            {/* Vision */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -93,8 +106,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20 bg-gradient-to-b from-white to-primary-50">
+      <section className="py-10 bg-gradient-to-b from-white to-primary-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -109,23 +121,7 @@ const About = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <HiChip className="w-6 h-6" />,
-                title: "Innovative Technology",
-                description: "State-of-the-art solutions for biomass waste conversion"
-              },
-              {
-                icon: <HiGlobe className="w-6 h-6" />,
-                title: "Global Reach",
-                description: "Serving clients across multiple countries"
-              },
-              {
-                icon: <HiOutlineLightBulb className="w-6 h-6" />,
-                title: "Expert Team",
-                description: "Dedicated professionals with years of experience"
-              }
-            ].map((feature, index) => (
+            {features.map((feature, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}

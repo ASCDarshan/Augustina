@@ -1,73 +1,81 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { FaLeaf, FaRecycle, FaCog, FaTools, FaIndustry, FaWrench } from 'react-icons/fa';
+import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import {
+  FaLeaf,
+  FaRecycle,
+  FaCog,
+  FaTools,
+  FaIndustry,
+  FaWrench,
+} from "react-icons/fa";
 
+const services = [
+  {
+    icon: <FaLeaf className="w-8 h-8" />,
+    title: "Free Consultancy",
+    description:
+      "Expert guidance for your biomass projects with no upfront costs",
+  },
+  {
+    icon: <FaRecycle className="w-8 h-8" />,
+    title: "Optimised Solutions",
+    description: "Customized biomass solutions designed for maximum efficiency",
+  },
+  {
+    icon: <FaCog className="w-8 h-8" />,
+    title: "Design & Engineering",
+    description: "Complete biomass equipment design and engineering services",
+  },
+  {
+    icon: <FaTools className="w-8 h-8" />,
+    title: "Project Revival",
+    description: "Modification and revival of non-functional biomass projects",
+  },
+  {
+    icon: <FaIndustry className="w-8 h-8" />,
+    title: "Customized Solutions",
+    description: "Tailored solutions for any type of biomass waste",
+  },
+  {
+    icon: <FaWrench className="w-8 h-8" />,
+    title: "Installation & Commissioning",
+    description:
+      "Full-service installation and commissioning of biomass projects",
+  },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
 const ServicesSection = () => {
   const [ref, inView] = useInView({
     threshold: 0.2,
     triggerOnce: true,
   });
 
-  const services = [
-    {
-      icon: <FaLeaf className="w-8 h-8" />,
-      title: "Free Consultancy",
-      description: "Expert guidance for your biomass projects with no upfront costs"
-    },
-    {
-      icon: <FaRecycle className="w-8 h-8" />,
-      title: "Optimised Solutions",
-      description: "Customized biomass solutions designed for maximum efficiency"
-    },
-    {
-      icon: <FaCog className="w-8 h-8" />,
-      title: "Design & Engineering",
-      description: "Complete biomass equipment design and engineering services"
-    },
-    {
-      icon: <FaTools className="w-8 h-8" />,
-      title: "Project Revival",
-      description: "Modification and revival of non-functional biomass projects"
-    },
-    {
-      icon: <FaIndustry className="w-8 h-8" />,
-      title: "Customized Solutions",
-      description: "Tailored solutions for any type of biomass waste"
-    },
-    {
-      icon: <FaWrench className="w-8 h-8" />,
-      title: "Installation & Commissioning",
-      description: "Full-service installation and commissioning of biomass projects"
-    }
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5
-      }
-    }
-  };
-
   return (
     <section className="py-20 bg-gradient-to-b from-white to-primary-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
@@ -75,7 +83,7 @@ const ServicesSection = () => {
           >
             What We Do
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -98,15 +106,11 @@ const ServicesSection = () => {
               variants={itemVariants}
               className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="text-primary-500 mb-4">
-                {service.icon}
-              </div>
+              <div className="text-primary-500 mb-4">{service.icon}</div>
               <h3 className="text-xl font-semibold text-primary-600 mb-2">
                 {service.title}
               </h3>
-              <p className="text-gray-600">
-                {service.description}
-              </p>
+              <p className="text-gray-600">{service.description}</p>
             </motion.div>
           ))}
         </motion.div>

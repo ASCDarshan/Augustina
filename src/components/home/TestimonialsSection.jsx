@@ -1,8 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { HiChevronLeft, HiChevronRight, HiStar } from 'react-icons/hi';
-import profileImg from "../../assets/images/profileImg.jpg"
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { HiChevronLeft, HiChevronRight, HiStar } from "react-icons/hi";
+import profileImg from "../../assets/images/profileImg.jpg";
+
+const testimonials = [
+  {
+    name: "Adhyashakti Green Solutions",
+    position: "Our Client",
+    image: "/images/testimonials/adhyashakti.png",
+    text: "Augustina consistently provides high-quality equipment and services that exceed customer expectations.",
+  },
+  {
+    name: "Ajil Biofuel Sdn. Bhd",
+    position: "Our Client",
+    image: "/images/testimonials/ajil.png",
+    text: "Augustina has built a compatible environment and collaborations with suppliers, which makes it easy to do business with.",
+  },
+  {
+    name: "Avi Renewables",
+    position: "Our Client",
+    image: "/images/testimonials/avi.png",
+    text: "Augustina is creating a powerful shift towards green future by reducing the over reliance of fossil fuels.",
+  },
+];
 
 const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -11,47 +32,26 @@ const TestimonialsSection = () => {
     triggerOnce: true,
   });
 
-  const testimonials = [
-    {
-      name: "Adhyashakti Green Solutions",
-      position: "Our Client",
-      image: "/images/testimonials/adhyashakti.png",
-      text: "Augustina consistently provides high-quality equipment and services that exceed customer expectations."
-    },
-    {
-      name: "Ajil Biofuel Sdn. Bhd",
-      position: "Our Client",
-      image: "/images/testimonials/ajil.png",
-      text: "Augustina has built a compatible environment and collaborations with suppliers, which makes it easy to do business with."
-    },
-    {
-      name: "Avi Renewables",
-      position: "Our Client",
-      image: "/images/testimonials/avi.png",
-      text: "Augustina is creating a powerful shift towards green future by reducing the over reliance of fossil fuels."
-    }
-  ];
-
-  // Auto-advance testimonials
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, [testimonials.length]);
+  }, []);
 
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
   };
 
   return (
     <section className="py-20 bg-gradient-to-br from-primary-50 via-white to-secondary-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -62,11 +62,11 @@ const TestimonialsSection = () => {
             What Our Clients Say
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Hear from businesses who have transformed their operations with our solutions
+            Hear from businesses who have transformed their operations with our
+            solutions
           </p>
         </motion.div>
 
-        {/* Testimonials Carousel */}
         <div ref={ref} className="relative">
           <div className="relative h-[400px] md:h-[300px]">
             <AnimatePresence mode="wait">
@@ -80,7 +80,6 @@ const TestimonialsSection = () => {
               >
                 <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 h-full">
                   <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-                    {/* Client Image */}
                     <div className="flex-shrink-0">
                       <div className="w-24 h-24 md:w-32 md:h-32 relative">
                         <img
@@ -92,7 +91,6 @@ const TestimonialsSection = () => {
                       </div>
                     </div>
 
-                    {/* Testimonial Content */}
                     <div className="flex-1 text-center md:text-left">
                       <div className="flex justify-center md:justify-start mb-4">
                         {[...Array(5)].map((_, i) => (
@@ -117,7 +115,6 @@ const TestimonialsSection = () => {
             </AnimatePresence>
           </div>
 
-          {/* Navigation Buttons */}
           <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between items-center px-4 md:-mx-12">
             <motion.button
               whileHover={{ scale: 1.1 }}
@@ -138,13 +135,12 @@ const TestimonialsSection = () => {
           </div>
         </div>
 
-        {/* Testimonial Indicators */}
         <div className="flex justify-center space-x-2 mt-8">
           {testimonials.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${index === currentIndex ? 'bg-primary-500' : 'bg-primary-200'
+              className={`w-3 h-3 rounded-full transition-colors ${index === currentIndex ? "bg-primary-500" : "bg-primary-200"
                 }`}
             />
           ))}

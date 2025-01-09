@@ -1,24 +1,32 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import missionImg from "../../assets/images/SUSTAINABLE.png"
+import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import missionImg from "../../assets/images/SUSTAINABLE.png";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+    },
+  },
+};
+
+const stats = [
+  { number: "21+", label: "Projects Completed" },
+  { number: "15+", label: "Team Members" },
+  { number: "2+", label: "Facilities" },
+  { number: "20M", label: "Tonnes Target" },
+];
 
 const AboutSection = () => {
+
   const [ref, inView] = useInView({
     threshold: 0.2,
     triggerOnce: true,
   });
-
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6
-      }
-    }
-  };
 
   return (
     <section className="py-20 bg-white">
@@ -34,10 +42,15 @@ const AboutSection = () => {
               15-YEARS OF SUSTAINABLE & INNOVATIVE TECHNOLOGIES
             </h2>
             <p className="text-gray-600 mb-6">
-              Augustina Tradelink Pvt. Ltd is engaged in engineering, designing, fabricating, and supplying renewable technologies to convert biomass waste into combustible fuel and gases.
+              Augustina Tradelink Pvt. Ltd is engaged in engineering, designing,
+              fabricating, and supplying renewable technologies to convert
+              biomass waste into combustible fuel and gases.
             </p>
             <p className="text-gray-600 mb-6">
-              Having strong teamwork and in-depth research, we have created new concepts and means to treat biomass waste. Our innovative and power-efficient systems help in generating briquettes, pellets, power, and combustible gases.
+              Having strong teamwork and in-depth research, we have created new
+              concepts and means to treat biomass waste. Our innovative and
+              power-efficient systems help in generating briquettes, pellets,
+              power, and combustible gases.
             </p>
 
             <motion.div
@@ -45,17 +58,12 @@ const AboutSection = () => {
               variants={{
                 visible: {
                   transition: {
-                    staggerChildren: 0.1
-                  }
-                }
+                    staggerChildren: 0.1,
+                  },
+                },
               }}
             >
-              {[
-                { number: "21+", label: "Projects Completed" },
-                { number: "15+", label: "Team Members" },
-                { number: "2+", label: "Facilities" },
-                { number: "20M", label: "Tonnes Target" }
-              ].map((stat, index) => (
+              {stats.map((stat, index) => (
                 <motion.div
                   key={index}
                   variants={fadeInUp}
@@ -85,7 +93,6 @@ const AboutSection = () => {
               <div className="absolute inset-0 bg-gradient-to-tr from-primary-500/20 to-transparent" />
             </div>
 
-            {/* Floating card */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -96,7 +103,8 @@ const AboutSection = () => {
                 Our Mission
               </h4>
               <p className="text-gray-600 text-sm">
-                To process and convert 20 million tonnes of biomass waste into reusable fuel.
+                To process and convert 20 million tonnes of biomass waste into
+                reusable fuel.
               </p>
             </motion.div>
           </motion.div>
