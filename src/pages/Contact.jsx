@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { HiPhone, HiMail, HiLocationMarker, HiClock, HiCheck } from 'react-icons/hi';
+import emailjs from 'emailjs-com';
 
 const contactInfo = [
   {
@@ -42,15 +43,37 @@ const Contact = () => {
     e.preventDefault();
     setFormStatus('submitting');
 
-    setTimeout(() => {
+    const serviceID = 'service_gb6oau5';
+    const templateID1 = 'template_69j7uge';
+    const templateID2 = 'template_xqmm2uu';
+    const userID = 'Q4PMUtGhISeKtcWhq';
+
+    try {
+      await Promise.all([
+        emailjs.send(
+          serviceID,
+          templateID1,
+          formData,
+          userID
+        ),
+        emailjs.send(
+          serviceID,
+          templateID2,
+          formData,
+          userID
+        )
+      ]);
+
       setFormStatus('success');
       setFormData({ name: '', email: '', phone: '', message: '' });
-    }, 1500);
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      setFormStatus('error');
+    }
   };
 
-
   return (
-    <div className="pt-20" >
+    <div className="pt-20">
       <section className="relative bg-gradient-to-b from-primary-50 to-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -68,7 +91,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <section >
+      <section>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <motion.div
@@ -154,6 +177,16 @@ const Contact = () => {
                   >
                     <HiCheck className="w-5 h-5 mr-2" />
                     Message sent successfully!
+                  </motion.div>
+                )}
+
+                {formStatus === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="flex items-center text-red-600 bg-red-50 p-4 rounded-lg"
+                  >
+                    Failed to send the message. Please try again later.
                   </motion.div>
                 )}
               </form>

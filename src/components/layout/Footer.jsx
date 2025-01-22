@@ -108,10 +108,10 @@ const Footer = () => {
               © {new Date().getFullYear()} Augustina Tradelink Pvt Ltd. All rights reserved.
             </p>
             <div className="mt-4 md:mt-0">
-              <Link to="/privacy-policy" className="text-gray-600 hover:text-primary-600 transition-colors mx-4">
+              <Link to="/" className="text-gray-600 hover:text-primary-600 transition-colors mx-4">
                 Privacy Policy
               </Link>
-              <Link to="/terms" className="text-gray-600 hover:text-primary-600 transition-colors mx-4">
+              <Link to="/" className="text-gray-600 hover:text-primary-600 transition-colors mx-4">
                 Terms of Service
               </Link>
             </div>
