@@ -5,7 +5,7 @@ import secondImg from "../assets/images/product two.jpg"
 import thirdImg from "../assets/images/three.jpg"
 import fourthImg from "../assets/images/four.jpg"
 import fifthImg from "../assets/images/five.png"
-// import technicalSupportImage from "../assets/images/technical support.jpg"
+import { useNavigate } from 'react-router-dom';
 
 const products = [
   {
@@ -70,6 +70,8 @@ const products = [
   }
 ];
 const Products = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="pt-20">
       <section className="relative bg-gradient-to-b from-primary-50 to-white py-20">
@@ -99,9 +101,9 @@ const Products = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden group"
+                className="bg-white rounded-2xl shadow-lg overflow-hidden group h-full flex flex-col"
               >
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative w-full h-64 flex-shrink-0">
                   <img
                     src={product.image}
                     alt={product.name}
@@ -110,28 +112,28 @@ const Products = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 </div>
 
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-1">
                     {product.name}
                   </h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-gray-600 mb-4 line-clamp-2">
                     {product.description}
                   </p>
 
-                  <div className="space-y-2 mb-6">
+                  <div className="space-y-2 mb-6 flex-grow">
                     {product.highlights.map((highlight, i) => (
-                      <div key={i} className="flex items-center text-gray-700">
-                        <HiChevronRight className="w-5 h-5 text-primary-500 flex-shrink-0" />
-                        <span className="ml-2">{highlight}</span>
+                      <div key={i} className="flex items-start text-gray-700">
+                        <HiChevronRight className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                        <span className="ml-2 line-clamp-1">{highlight}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="flex space-x-4">
+                  <div className="flex space-x-4 mt-auto">
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      // onClick={() => setSelectedProduct(product)}
+                      onClick={() => navigate(`/products/${product.id}`)}
                       className="flex-1 bg-primary-500 text-white py-2 px-4 rounded-lg hover:bg-primary-600 transition-colors"
                     >
                       Learn More
@@ -166,7 +168,6 @@ const Products = () => {
               Detailed specifications and performance metrics of our equipment
             </p>
           </motion.div>
-
         </div>
       </section>
 
